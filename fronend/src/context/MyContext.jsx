@@ -16,8 +16,7 @@ export const ContextProvider = ({ children }) => {
                 withCredentials: true,
             });
 
-            console.log(res, "user data")
-
+            // console.log(res, "user data")
 
             if (res.status === 200) {
                 setUser(res.data.employee)

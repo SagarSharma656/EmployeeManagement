@@ -7,7 +7,7 @@ const { VITE_BASE_URL } = import.meta.env;
 
 export default function LoginPage() {
 
-    const {loading, setLoading} = useMyContext();
+    const { loading, setLoading, fetchUser } = useMyContext();
     const [formData, setFormData] = useState({email: "", password: ""});
     const navigate = useNavigate();
 
@@ -22,6 +22,7 @@ export default function LoginPage() {
 
             // console.log(res, "res from login api")
             if(res.status === 200){
+                fetchUser();
                 toast.success(res?.data?.message)
                 localStorage.setItem('user', JSON.stringify(res?.data?.employee))
                 navigate('/');
